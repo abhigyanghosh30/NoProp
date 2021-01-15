@@ -2,7 +2,7 @@
   "name": "NoProp",
   "version": "1.0",
   "description": "An extension to detect propaganda on websites and highlight them",
-  "permissions": ["activeTab", "contextMenus"],
+  "permissions": ["activeTab", "contextMenus", "*://localhost/*"],
   "icons": {
     "16": "images/get_started16.png",
     "32": "images/get_started32.png",
