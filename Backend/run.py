@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def hello_world():
     data = request.get_json()
-    modelpath = '../Model/liar_BERT'
+    modelpath = '../Model/proppy_BERT'
     model = Classifier.load(modelpath)
     predictions = model.predict(data['article'])
     print(predictions)
