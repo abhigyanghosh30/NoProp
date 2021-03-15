@@ -7,15 +7,12 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def hello_world():
     data = request.get_json()
-    modelpath = '../Model/proppy_BERT'
+    modelpath = '/home/masterg/Documents/8th Semester/Social Computing/NoProp/Model/liar_BERT'
     model = Classifier.load(modelpath)
     predictions = model.predict(data['article'])
     print(predictions)
-    if data['article'].find("propaganda") == -1:
-        return jsonify({"bool": "0"})
-    else:
-        return jsonify({"bool": "1"})
-
+    print(data['article'])
+    return jsonify({"bool":str(predictions[0])})
 
 if __name__ == '__main__':
     app.run(debug=True)

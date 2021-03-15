@@ -18,7 +18,7 @@ browser.storage.local.get({ NoProp: false }, (items) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        article: full_article,
+        article: [full_article,],
         source: window.location.origin,
       }),
     })
@@ -26,9 +26,9 @@ browser.storage.local.get({ NoProp: false }, (items) => {
         return res.json();
       })
       .then((data) => {
-        if (data["bool"] == "1") {
+        if (data["bool"] == "0") {
           window.alert(
-            "This page may contain propaganda/false news. Use your discretion before continuing.. You can turn off NoProp in the extension bar if you wish to not see these messages again"
+            "This page may contain false news. Use your discretion before continuing.. You can turn off NoProp in the extension bar if you wish to not see these messages again"
           );
         }
       });
