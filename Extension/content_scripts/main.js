@@ -11,7 +11,7 @@ browser.storage.local.get({ NoProp: false }, (items) => {
       full_article += paragraphs[i].innerText;
     }
 
-    fetch("http://localhost:5000", {
+    fetch("http://localhost:8000", {
       method: "POST",
       mode: "cors",
       headers: {
