@@ -26,7 +26,7 @@ browser.storage.local.get({ NoProp: false }, (items) => {
         return res.json();
       })
       .then((data) => {
-        if (data["bool"] == "0") {
+        if (data["bool"] == "1") {
           window.alert(
             "This page may contain false news. Use your discretion before continuing.. You can turn off NoProp in the extension bar if you wish to not see these messages again"
           );

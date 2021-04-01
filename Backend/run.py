@@ -8,9 +8,11 @@ app = FastAPI()
 @app.post('/')
 async def hello_world(request: Request):
     data = await request.json()
-    modelpath = '/home/masterg/Documents/8th Semester/Social Computing/NoProp/Model/liar_BERT'
-    model = Classifier.load(modelpath)
-    predictions = model.predict(data['article'])
-    print(predictions)
-    print(data['article'])
-    return {"bool":str(predictions[0])}
+    modelpath_liar = '/home/masterg/Documents/8th Semester/Social Computing/NoProp/Model/liar_BERT'
+    modelpath_prop = '/home/masterg/Documents/8th Semester/Social Computing/NoProp/Model/proppy_BERT'
+    model_liar = Classifier.load(modelpath_liar)
+    model_prop = Classifier.load(modelpath_prop)
+    predictions_prop = model_prop.predict(data['article'])
+    predictions_liar = model_liar.predict(data['article'])
+    print(predictions_liar, predictions_prop)
+    return {"bool":str(predictions_prop[0] and not predictions_liar[0])}
