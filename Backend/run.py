@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
+
 @app.post('/')
 async def hello_world(request: Request):
     data = await request.json()
@@ -15,4 +16,4 @@ async def hello_world(request: Request):
     predictions_prop = model_prop.predict(data['article'])
     predictions_liar = model_liar.predict(data['article'])
     print(predictions_liar, predictions_prop)
-    return {"bool":str(predictions_prop[0] and not predictions_liar[0])}
+    return {"prop": str(predictions_prop[0]), "liar": str(predictions_liar[0])}
