@@ -19,7 +19,8 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["content_scripts/main.js", "content_scripts/source_list.js"]
+      "js": ["content_scripts/main.js", "content_scripts/source_list.js"],
+      "css": ["content_scripts/bootstrap.min.css"]
     }
   ],
   "browser_action": {
