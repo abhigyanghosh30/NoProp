@@ -2,7 +2,13 @@
   "name": "NoProp",
   "version": "1.0",
   "description": "An extension to detect propaganda on websites and highlight them",
-  "permissions": ["activeTab", "contextMenus", "storage", "*://localhost/*"],
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "*://localhost/*",
+    "webRequest"
+  ],
   "icons": {
     "16": "images/get_started16.png",
     "32": "images/get_started32.png",
@@ -11,7 +17,11 @@
   },
   "manifest_version": 2,
   "content_scripts": [
-    { "matches": ["*://*/*"], "js": ["content_scripts/main.js"] }
+    {
+      "matches": ["*://*/*"],
+      "js": ["content_scripts/main.js", "content_scripts/source_list.js"],
+      "css": ["content_scripts/bootstrap.min.css"]
+    }
   ],
   "browser_action": {
     "default_icon": "images/get_started32.png",
